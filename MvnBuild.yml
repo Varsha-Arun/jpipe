@@ -50,6 +50,7 @@ pipelines:
       - name: promote
         type: PromoteBuild
         configuration:
+          targetRepo: ragesh-promoted
           integrations:
             - name: deepika_artifactory
           inputSteps:
