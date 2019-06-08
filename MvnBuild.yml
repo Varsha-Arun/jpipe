@@ -40,6 +40,9 @@ pipelines:
       - name: publish
         type: PublishBuildInfo
         configuration:
+          envInclude: test   
+          #envExclude: <string>   
+          forceXrayScan: false    # default false
           integrations:
             - name: deepika_artifactory
           inputSteps:
