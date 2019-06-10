@@ -11,6 +11,13 @@ resources:
       sourceArtifactory: deepika_artifactory
       buildName: go_example_publish
       buildNumber: 1
+      
+  - name: myReleaseBundle
+    type: ReleaseBundle
+    configuration:
+      sourceArtifactory: deepika_artifactory
+      name: test_release
+      version: v1.0.0
  
 pipelines:
   - name: go_example_publish
@@ -49,4 +56,17 @@ pipelines:
             - name: deepika_artifactory
           inputSteps:
             - name: publish
+      - name: bundle
+        type: CreateReleaseBundle
+        configuration:
+          description: "This is to test GoPublish -> PublishBuildInfo -> Promote -> CreateRelease -> Sign -> Distribute pipeline chain"
+          targetRepo: deepika-promoted
+          inputResources:
+            - name: build_info
+          integrations:
+            - name: deepika_artifactory
+          inputSteps:
+            - name: publish
+          outputResources:
+            - name: myReleaseBundle   # a ReleaseBundle resource 
 
