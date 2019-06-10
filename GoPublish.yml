@@ -12,8 +12,8 @@ pipelines:
         type: GoPublish
         configuration:
           sourceLocation: .
-          version: v1.0.0
-          targetRepository: go
+          version: v1.2.0
+          targetRepository: deepika-go
           inputResources:
             - name: artifactory_go_example
           integrations:
