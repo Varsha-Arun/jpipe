@@ -60,7 +60,8 @@ pipelines:
         type: CreateReleaseBundle
         configuration:
           description: "This is to test GoPublish -> PublishBuildInfo -> Promote -> CreateRelease -> Sign -> Distribute pipeline chain"
-          targetRepo: deepika-promoted
+          releaseBundleName: test_release
+          releaseBundleVersion: v1.0.0
           inputResources:
             - name: build_info
           integrations:
