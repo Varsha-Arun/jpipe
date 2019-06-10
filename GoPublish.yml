@@ -12,6 +12,7 @@ pipelines:
         type: GoPublish
         configuration:
           sourceLocation: .
+          version: v1.0.0
           targetRepository: go
           inputResources:
             - name: artifactory_go_example
