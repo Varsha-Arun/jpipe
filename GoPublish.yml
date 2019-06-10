@@ -9,7 +9,7 @@ pipelines:
   - name: go_example_build
     steps:
       - name: build_go
-        type: GoBuild
+        type: GoPublish
         configuration:
           sourceLocation: .
           targetRepository: go
