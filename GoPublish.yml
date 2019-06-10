@@ -6,7 +6,7 @@ resources:
       gitProvider: deepikaGithub
  
 pipelines:
-  - name: go_example_build
+  - name: go_example_publish
     steps:
       - name: publish_go
         type: GoPublish
