@@ -36,7 +36,7 @@ pipelines:
         type: PublishBuildInfo
         configuration:
           integrations:
-            - name: art
+            - name: deepika_artifactory
           inputSteps:
             - name: publish_go
           outputResources:
