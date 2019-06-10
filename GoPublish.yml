@@ -70,4 +70,5 @@ pipelines:
             - name: publish
           outputResources:
             - name: myReleaseBundle   # a ReleaseBundle resource 
+            
 
