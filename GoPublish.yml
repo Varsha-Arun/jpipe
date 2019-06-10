@@ -12,7 +12,7 @@ pipelines:
         type: GoPublish
         configuration:
           sourceLocation: .
-          version: v1.2.0
+          version: v1.2.1
           targetRepository: deepika-go
           deps: all
           inputResources:
