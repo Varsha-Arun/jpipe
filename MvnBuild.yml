@@ -25,9 +25,10 @@ pipelines:
           nodePool: deepika_u16_node
           runtime:
             type: image
-            custom:
-              name: drydock/u18java
-              tag: master
+            image:
+              custom:
+                name: drydock/u18java
+                tag: master
           inputResources:
             - name: project_example_mvn
           integrations:
