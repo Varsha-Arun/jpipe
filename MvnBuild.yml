@@ -38,6 +38,8 @@ pipelines:
           onStart:
             - javac -version
             - mvn --version
+            - echo $PATH
+            - export M2_HOME=/usr/local/apache-maven-3.6.1/
       - name: publish_mvn
         type: PublishBuildInfo
         configuration:
