@@ -29,6 +29,7 @@ pipelines:
               custom:
                 name: drydock/u18java
                 tag: master
+                autoPull: true
           inputResources:
             - name: project_example_mvn
           integrations:
