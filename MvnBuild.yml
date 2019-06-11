@@ -42,6 +42,7 @@ pipelines:
             #- export M2_HOME=/usr/local/apache-maven-3.6.1/
             - export APACHE_MAVEN="3.6.1"
             - echo 'export M2_HOME=/usr/local/apache-maven-$APACHE_MAVEN/'
+            - echo M2_HOME
       - name: publish_mvn
         type: PublishBuildInfo
         configuration:
