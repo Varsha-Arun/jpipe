@@ -14,7 +14,7 @@ resources:
     type: FileSpec
     configuration:
       sourceArtifactory: deepika_artifactory
-      pattern: *
+      pattern: '*'
       
 pipelines:
   - name: npm_example
