@@ -1,0 +1,45 @@
+resources:
+  - name: artifactory_go_example
+    type: GitRepo
+    configuration:
+      path: deepikasl/artifactory-go-example
+      gitProvider: deepikaGithub
+      
+  - name: build_info
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: deepika_artifactory
+      buildName: go_example_publish
+      buildNumber: 1
+      
+  - name: myReleaseBundle
+    type: ReleaseBundle
+    configuration:
+      sourceArtifactory: deepika_artifactory
+      name: test_release
+      version: v1.0.0
+ 
+pipelines:
+  - name: go_example_publish
+    steps:
+      - name: publish_go
+        type: GoPublishModule
+        configuration:
+          sourceLocation: .
+          version: v1.2.1
+          forceXrayScan: true
+          autoPublishBuildInfo: true
+          targetRepository: deepika-go
+          deps: all
+          inputResources:
+            - name: artifactory_go_example
+          integrations:
+            - name: deepika_artifactory
+        execution:
+          onStart:
+            - wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
+            - sudo tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
+            - export PATH=$PATH:/usr/local/go/bin
+            - go version
+      
+            
