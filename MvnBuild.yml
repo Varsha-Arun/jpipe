@@ -38,8 +38,6 @@ pipelines:
           onStart:
             - javac -version
             - mvn --version
-            - echo $PATH
-            - echo $M2_HOME
       - name: publish_mvn
         type: PublishBuildInfo
         configuration:
