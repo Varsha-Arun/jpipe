@@ -1,0 +1,26 @@
+resources:
+  - name: npmHelloWorld_repo
+    type: GitRepo
+    configuration:
+      path: deepikasl/npmHelloWorld
+      gitProvider: deepikaGithub
+  - name: helloworld_build_info
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: deepika_artifactory
+      buildName: npm_example
+      buildNumber: 1
+      
+pipelines:
+  - name: npm_example
+    steps:
+      - name: build_npm
+        type: NpmBuild
+        configuration:
+          repositoryName: npm-local
+          sourceLocation: .
+          inputResources:
+            - name: npmHelloWorld_repo
+          #integrations:
+            #- name: art
+      
