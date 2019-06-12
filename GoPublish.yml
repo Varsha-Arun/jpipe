@@ -23,10 +23,12 @@ pipelines:
   - name: go_example_publish
     steps:
       - name: publish_go
-        type: GoPublish
+        type: GoPublishModule
         configuration:
           sourceLocation: .
           version: v1.2.1
+          forceXrayScan: true
+          autoPublishBuildInfo: true
           targetRepository: deepika-go
           deps: all
           inputResources:
@@ -39,36 +41,6 @@ pipelines:
             - sudo tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
             - export PATH=$PATH:/usr/local/go/bin
             - go version
-      - name: publish
-        type: PublishBuildInfo
-        configuration:
-          integrations:
-            - name: deepika_artifactory
-          inputSteps:
-            - name: publish_go
-          outputResources:
-            - name: build_info
-      - name: promote
-        type: PromoteBuild
-        configuration:
-          targetRepo: deepika-promoted
-          integrations:
-            - name: deepika_artifactory
-          inputSteps:
-            - name: publish
-      - name: bundle
-        type: CreateReleaseBundle
-        configuration:
-          description: "This is to test GoPublish -> PublishBuildInfo -> Promote -> CreateRelease -> Sign -> Distribute pipeline chain"
-          releaseBundleName: test_release
-          releaseBundleVersion: v1.0.0
-          inputResources:
-            - name: build_info
-          integrations:
-            - name: deepika_artifactory
-          inputSteps:
-            - name: publish
-          outputResources:
-            - name: myReleaseBundle   # a ReleaseBundle resource 
+      
             
 
