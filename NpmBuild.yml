@@ -26,7 +26,7 @@ pipelines:
           sourceLocation: .
           inputResources:
             - name: npmHelloWorld_repo
-            - name: files
+#             - name: files
           integrations:
             - name: deepika_artifactory
       
