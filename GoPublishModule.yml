@@ -28,20 +28,29 @@ pipelines:
           sourceLocation: .
           version: v1.2.1
           forceXrayScan: false
-          autoPublishBuildInfo: true
+          autoPublishBuildInfo: false
           targetRepository: deepika-go
           deps: all
           inputResources:
             - name: artifactory_go_example
           integrations:
             - name: deepika_artifactory
-          outputResources:
-            - name: build_info
+#           outputResources:
+#             - name: build_info
         execution:
           onStart:
             - wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
             - sudo tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
             - export PATH=$PATH:/usr/local/go/bin
             - go version
+      - name: publish
+        type: PublishBuildInfo
+        configuration:
+          integrations:
+            - name: deepika_artifactory
+          inputSteps:
+            - name: publish_go
+          outputResources:
+            - name: build_info
       
             
