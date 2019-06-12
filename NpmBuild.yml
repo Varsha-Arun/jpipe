@@ -14,7 +14,7 @@ resources:
     type: FileSpec
     configuration:
       sourceArtifactory: deepika_artifactory
-      pattern: deepika-promoted/*
+      pattern: generic-local/*
       
 pipelines:
   - name: npm_example
