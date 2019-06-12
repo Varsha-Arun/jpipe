@@ -28,7 +28,7 @@ pipelines:
           sourceLocation: .
           version: v1.2.1
           forceXrayScan: false
-          autoPublishBuildInfo: false
+          autoPublishBuildInfo: true
           targetRepository: deepika-go
           deps: all
           inputResources:
