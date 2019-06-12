@@ -14,7 +14,7 @@ resources:
     type: FileSpec
     configuration:
       sourceArtifactory: art
-      pattern: ragesh-generic/*.txt
+      pattern: deepika-promoted/*
  
 pipelines:
   - name: go_example_build
