@@ -10,6 +10,11 @@ resources:
       sourceArtifactory: deepika_artifactory
       buildName: npm_example
       buildNumber: 1
+  - name: files
+    type: FileSpec
+    configuration:
+      sourceArtifactory: deepika_artifactory
+      pattern: *
       
 pipelines:
   - name: npm_example
@@ -21,6 +26,7 @@ pipelines:
           sourceLocation: .
           inputResources:
             - name: npmHelloWorld_repo
+            - name: files
           integrations:
             - name: deepika_artifactory
       
