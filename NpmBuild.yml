@@ -23,5 +23,4 @@ pipelines:
             - name: npmHelloWorld_repo
           integrations:
             - name: deepika_artifactory
-            - name: deepika_artifactory_2
       
