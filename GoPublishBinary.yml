@@ -12,7 +12,9 @@ pipelines:
         type: GoBuild
         configuration:
           sourceLocation: .
-          targetRepository: deepika-go
+          repository: deepika-go
+          outputLocation: /tmp/dist
+          outputFile: hello
           inputResources:
             - name: artifactory_go_example
           integrations:
