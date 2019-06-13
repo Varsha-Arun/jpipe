@@ -31,12 +31,17 @@ pipelines:
             #- sudo tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
             #- export PATH=$PATH:/usr/local/go/bin
             - go version    
+      - name: bash_go
+        type: Bash
+        configuration:
+          inputResources:
+            - name: artifactory_go_example
       - name: publish_go_binary
         type: GoPublishBinary
         configuration:
           #autoPublishBuildInfo: true
           inputSteps:
-            - name: build_go
+            - name: bash_go
           integrations:
             - name: deepika_artifactory
 #           outputResources:
