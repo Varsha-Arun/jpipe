@@ -45,6 +45,9 @@ pipelines:
           #autoPublishBuildInfo: true
           inputSteps:
             - name: bash_go
+          targetRepository: deepika-go
+          fileLocation: /tmp/dist
+          fileName: hello
           integrations:
             - name: deepika_artifactory
 #           outputResources:
