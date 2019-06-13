@@ -36,6 +36,8 @@ pipelines:
         configuration:
           inputResources:
             - name: artifactory_go_example
+          inputSteps:
+            - name: build_go
         execution:
           onExecute:
             - echo "bash_go"
@@ -44,7 +46,7 @@ pipelines:
         configuration:
           #autoPublishBuildInfo: true
           inputSteps:
-            - name: build_go
+            - name: bash_go
           targetRepository: deepika-go
           integrations:
             - name: deepika_artifactory
