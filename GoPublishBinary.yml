@@ -4,6 +4,12 @@ resources:
     configuration:
       path: deepikasl/artifactory-go-example
       gitProvider: deepikaGithub
+  - name: build_info_go
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: deepika_artifactory
+      buildName: mvn_example_build
+      buildNumber: 1
  
 pipelines:
   - name: go_example_build
@@ -33,4 +39,5 @@ pipelines:
             - name: build_go
           integrations:
             - name: deepika_artifactory
-            
+          outputResources:
+            - name: build_info_go
