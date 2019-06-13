@@ -13,6 +13,7 @@ pipelines:
         configuration:
           sourceLocation: .
           repository: deepika-go
+          autoPublishBuildInfo: true
           outputLocation: /tmp/dist
           outputFile: hello
           inputResources:
