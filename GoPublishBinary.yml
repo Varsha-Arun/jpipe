@@ -44,11 +44,18 @@ pipelines:
       - name: publish_go_binary
         type: GoPublishBinary
         configuration:
-          autoPublishBuildInfo: true
+         # autoPublishBuildInfo: true
           inputSteps:
             - name: build_go
           targetRepository: deepika-go
           integrations:
             - name: deepika_artifactory
+#           outputResources:
+#             - name: build_info_go
+      - name: publish_go_build
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: publish_go_binary
           outputResources:
             - name: build_info_go
