@@ -13,7 +13,6 @@ pipelines:
         configuration:
           sourceLocation: .
           repository: deepika-go
-          autoPublishBuildInfo: true
           outputLocation: /tmp/dist
           outputFile: hello
           inputResources:
@@ -29,6 +28,7 @@ pipelines:
       - name: publish_go_binary
         type: GoPublishBinary
         configuration:
+          autoPublishBuildInfo: true
           inputSteps:
             - name: build_go
           integrations:
