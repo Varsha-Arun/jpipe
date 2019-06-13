@@ -36,6 +36,9 @@ pipelines:
         configuration:
           inputResources:
             - name: artifactory_go_example
+          execution:
+            onExecute:
+              - echo "bash_go"
       - name: publish_go_binary
         type: GoPublishBinary
         configuration:
