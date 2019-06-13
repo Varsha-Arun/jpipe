@@ -29,7 +29,7 @@ pipelines:
         type: GoPublishBinary
         configuration:
           inputSteps:
-            - name: deepika-go
+            - name: build_go
           integrations:
             - name: deepika_artifactory
             
