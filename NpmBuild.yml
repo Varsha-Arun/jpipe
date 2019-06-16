@@ -7,13 +7,13 @@ resources:
   - name: helloworld_build_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: deepika_artifactory
+      sourceArtifactory: art
       buildName: npm_example
       buildNumber: 1
   - name: files
     type: FileSpec
     configuration:
-      sourceArtifactory: deepika_artifactory
+      sourceArtifactory: art
       pattern: generic-local/*
       
 pipelines:
@@ -28,5 +28,5 @@ pipelines:
             - name: npmHelloWorld_repo
             - name: files
           integrations:
-            - name: deepika_artifactory
+            - name: art
       
