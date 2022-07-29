@@ -1,1 +1,1 @@
-echo "executing test.sh file!!"
+echo "executing test.sh"
